@@ -1,0 +1,37 @@
+.wrapper {
+  width: 100%;
+  align-self: center;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  overflow-y: hidden;
+
+  &__verses-list {
+    overflow: auto;
+    height: 500px;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+    padding: 32px 0;
+    align-items: center;
+
+    &__item {
+      background-color: white;
+      box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+      width: 75%;
+      padding: 24px;
+      border-radius: 12px;
+      row-gap: 12px;
+      display: flex;
+      flex-direction: column;
+
+      &__verse {
+      }
+
+      &__verse-content {
+        font-size: 14px;
+      }
+    }
+  }
+}

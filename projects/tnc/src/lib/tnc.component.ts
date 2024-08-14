@@ -13,7 +13,7 @@ interface ITermAndCondition {
   content: string;
 }
 
-const mockTNCs = [
+const data = [
   {
     verse: '2 Corinthians 8:21',
     content:
@@ -86,7 +86,7 @@ export class TncComponent {
     this.showTNCs = !this.showTNCs;
     this._commonChangeDetector();
     this._observeForLastElement();
-    this.termsAndConditions = mockTNCs;
+    this.termsAndConditions = data;
     this._commonChangeDetector();
   }
 
@@ -122,7 +122,6 @@ export class TncComponent {
       {
         root: this._wrapper__overlay__content__tncs.nativeElement,
         threshold: 1,
-        rootMargin: '0px 0px -12px 0px',
       }
     );
     observer.observe(targetELement);
