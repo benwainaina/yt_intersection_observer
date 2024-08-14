@@ -1,0 +1,50 @@
+<div class="wrapper">
+  <div class="wrapper__trigger poppins-bold" (click)="toggleTNCs()">
+    Read Terms And Conditions
+  </div>
+
+  <div *ngIf="showTNCs" class="wrapper__overlay">
+    <div class="wrapper__overlay__underlay"></div>
+    <div class="wrapper__overlay__content">
+      <div class="wrapper__overlay__content__title poppins-bold">
+        Terms and conditions
+      </div>
+      <div
+        #wrapper__overlay__content__tncs
+        class="wrapper__overlay__content__tncs"
+      >
+        <div
+          *ngFor="let tnc of termsAndConditions; let idx = index"
+          class="wrapper__overlay__content__tncs__tnc {{
+            idx === termsAndConditions.length - 1 ? 'is-last-element' : ''
+          }}"
+        >
+          <div
+            class="wrapper__overlay__content__tncs__tnc__index poppins-semibold"
+          >
+            {{ idx + 1 }}
+          </div>
+          <div class="wrapper__overlay__content__tncs__tnc__content">
+            <div
+              class="wrapper__overlay__content__tncs__tnc__content__verse poppins-semibold"
+            >
+              {{ tnc.verse }}
+            </div>
+            <div
+              class="wrapper__overlay__content__tncs__tnc__content__verse-content poppins-regular"
+            >
+              {{ tnc.content }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="wrapper__overlay__content__action poppins-bold"
+        [ngClass]="{ disabled: !userHasRead }"
+        (click)="closeTNCs()"
+      >
+        I have read and accepted
+      </div>
+    </div>
+  </div>
+</div>

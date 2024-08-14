@@ -19,6 +19,15 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
+    "paths": {
+      "infinite-scroll": [
+        "./dist/infinite-scroll",
+        "./dist/infinite-scroll"
+      ],
+      "tnc": [
+        "./dist/tnc"
+      ]
+    },
     "lib": [
       "ES2022",
       "dom"
