@@ -105,7 +105,7 @@ export class InfiniteScrollComponent {
     const observer = new IntersectionObserver(
       (entries) => {
         const [target] = entries;
-        if (target?.isIntersecting && target.intersectionRatio === 1) {
+        if (target?.isIntersecting) {
           this.showLoading = true;
           this.loadTrigger = false;
           this._commonChangeDetector();
@@ -121,13 +121,14 @@ export class InfiniteScrollComponent {
   }
 
   private _fetchData(): void {
+    this.showLoading = true;
     setTimeout(() => {
       this._observeForLastElement();
       this.verses = [...this.verses, ...data];
       this.showLoading = false;
       this.loadTrigger = true;
       this._commonChangeDetector();
-    }, 3000);
+    }, 2000);
   }
 
   private _commonChangeDetector(): void {

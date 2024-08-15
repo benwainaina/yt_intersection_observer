@@ -79,7 +79,6 @@ export class TncComponent {
   @ViewChild('wrapper__overlay__content__tncs', { static: false })
   private _wrapper__overlay__content__tncs!: ElementRef<HTMLDivElement>;
   private _changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
-  private _mutationObserver!: MutationObserver;
 
   ngOnInit(): void {}
 
@@ -101,6 +100,10 @@ export class TncComponent {
     this.showTNCs = false;
     this.termsAndConditions = [];
     this._commonChangeDetector();
+  }
+
+  private _commonChangeDetector(): void {
+    this._changeDetectorRef.detectChanges();
   }
 
   private _observeForLastElement(): void {
@@ -132,9 +135,5 @@ export class TncComponent {
       }
     );
     observer.observe(targetELement);
-  }
-
-  private _commonChangeDetector(): void {
-    this._changeDetectorRef.detectChanges();
   }
 }
