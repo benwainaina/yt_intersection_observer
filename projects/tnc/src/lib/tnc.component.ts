@@ -79,6 +79,7 @@ export class TncComponent {
   @ViewChild('wrapper__overlay__content__tncs', { static: false })
   private _wrapper__overlay__content__tncs!: ElementRef<HTMLDivElement>;
   private _changeDetectorRef: ChangeDetectorRef = inject(ChangeDetectorRef);
+  private _mutationObserver!: MutationObserver;
 
   ngOnInit(): void {}
 
@@ -94,6 +95,12 @@ export class TncComponent {
     if (this.userHasRead) {
       this.toggleTNCs();
     }
+  }
+
+  public onUnderlayClick(): void {
+    this.showTNCs = false;
+    this.termsAndConditions = [];
+    this._commonChangeDetector();
   }
 
   private _observeForLastElement(): void {

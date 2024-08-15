@@ -4,7 +4,7 @@
   </div>
 
   <div *ngIf="showTNCs" class="wrapper__overlay">
-    <div class="wrapper__overlay__underlay"></div>
+    <div (click)="onUnderlayClick()" class="wrapper__overlay__underlay"></div>
     <div class="wrapper__overlay__content">
       <div class="wrapper__overlay__content__title poppins-bold">
         Terms and conditions
@@ -43,7 +43,7 @@
         [ngClass]="{ disabled: !userHasRead }"
         (click)="closeTNCs()"
       >
-        I have read and accepted {{ userHasRead }}
+        I have read and accepted
       </div>
     </div>
   </div>
